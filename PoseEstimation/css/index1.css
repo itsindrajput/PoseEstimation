@@ -1,0 +1,344 @@
+*{
+	padding:0px;
+	margin:0px;
+}
+
+body{
+  box-sizing: border-box;
+  position: relative;
+  background: #FFFFFF;
+  mix-blend-mode: normal;
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.jumbotron{
+	background: #DC2424;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4A569D, #DC2424);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4A569D, #DC2424); /* IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	text-align: center;
+  color: white;
+	margin: 0px;
+  padding: 0px;
+}
+
+@media only screen and (max-width: 500px) {
+  .display-7 {
+    font-size: 1.8rem;
+    margin-top: 0rem;
+  }
+}
+
+h1{
+  font-size: 2.2rem;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+@media only screen and (min-width: 560px) {
+  h1 {
+    line-height: 4rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #scrollfn {
+    padding: 0px;
+    margin: 0px;
+  }
+}
+
+
+/* Navbar Css beigns here */
+
+@media only screen and (min-width: 500px) {
+    #navbc {
+      margin-top: 0rem;
+    }
+}
+
+#navbarstyle{
+	background: #FEAC5E;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E); /* IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  margin-bottom: 1px;
+  padding: 0px;
+}
+
+#actives:hover{
+	background-color: rgb(50, 199, 207);
+	font-size: 16px;
+}
+#reactives:hover{
+	background-color: rgb(50, 199, 207);
+	font-size: 16px;
+}
+
+#actives:active{
+	border: 2px solid rgb(88, 199, 131);
+}
+#reactives:active{
+	border: 2px solid rgb(88, 199, 131);
+}
+
+#actives:focus{
+	border-color: rgb(14, 81, 32);
+}
+#reactives:focus{
+	border-color: rgb(14, 81, 32);
+}
+
+#actives{
+	color: black;
+  font-weight: 600;
+	font-size: 1.3rem;
+	text-align: center;
+	font-family: Cambria,Georgia,arial;
+}
+@media only screen and (min-width: 750px) {
+  #actives {
+    margin: 0px 70px 0px 0px;
+  }
+}
+
+#reactives{
+  color: black;
+  font-weight: 600;
+	font-size: 1.3rem;
+	text-align: center;
+  font-family: Cambria,Georgia,arial;
+}
+
+
+@media only screen and (min-width: 750px) {
+  #reactives {
+    margin: 0px 70px 0px 0px;
+  }
+}
+
+@media only screen and (min-width: 750px) {
+  #rehome {
+    padding: 0rem 4rem 0rem 17.5rem;
+  }
+}
+#rehome{
+  color: black;
+  font-weight: 600;
+	font-size: 1.8rem;
+	text-align: center;
+	font-family: Cambria,Georgia,arial;
+	margin-bottom: 1px; 
+}
+
+@media only screen and (max-width: 550px) {
+  .Website{
+    float: right;
+  }
+}
+
+/* Navbar Css ends here */
+
+
+/* reset our lists to remove bullet points and padding */
+.list{
+padding:0px;
+margin:0px;
+}
+
+.mainmenu, .submenu {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+/* make ALL links (main and submenu) have padding and background color */
+#droupdown{
+  width: 100%;
+  text-align: center;
+  height: 3rem;
+  background-color: rgb(63, 21, 214);
+  font-size: 18px;
+  color: rgb(248, 247, 247);
+  font-weight: bold;
+  overflow: scroll;
+}
+
+@media only screen and (max-width: 500px) {
+  #droupdown {
+    height: 3.9rem;
+  }
+}
+
+#droupdown:hover{
+  background-color: yellowgreen;
+  color: blue;
+
+}
+
+.mainmenu a {
+font-size: 18px;
+text-align: center;
+display:block;
+background-color: rgb(63, 21, 214);
+padding: 8px;
+border-color: rgb(174, 172, 172);
+border-style: solid;
+border-width: 0.1rem;
+color: rgb(248, 247, 247);
+}
+
+@media only screen and (max-width: 500px) {
+  .mainmenu a {
+    padding: 11px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .row {
+    margin: 0px;
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #mobilecarousel {
+    width: 400px;
+    height: 558px;
+    margin: 0px;
+    padding: 0px;
+  }
+}
+
+.mainmenu a:hover {
+	background-color: yellowgreen;
+}
+
+.mainmenu li:hover .submenu {
+max-height: 200px;
+}
+
+.submenu {
+  background-color: darkcyan;
+  transition: all .2s ease-in-out;
+  color: white;
+}
+
+.icon-bar{
+	float: both;
+	word-spacing: 0.7em;
+	text-align: center;
+}
+.list-unstyled{
+	font-size: 18px;
+	font-family: Cambria,Georgia,Arial,sans-sarif;
+}
+a{
+	color: rgb(26, 24, 24);
+	text-decoration:none;
+}
+a:hover{
+	color: blue;
+	text-decoration: none;
+}
+
+
+
+.footer{
+  background: #FEAC5E;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E); /* IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	padding-top: 1rem;
+	margin-top: 0.7rem;
+  }
+  #container1{
+    padding-left: 7rem;
+  }
+  @media only screen and (max-width: 500px) {
+    #container1{
+      padding-left: 0.3rem;
+    }
+  }
+
+  .footer-col{
+     width: 23%;
+     padding: 0 20px;
+  }
+  
+  .footer-col h4{
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: rgb(254, 254, 254);
+    text-transform: capitalize;
+    margin-bottom: 5px;
+    position: relative;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  } 
+  
+  .footer-col ul li:not(:last-child){
+      margin-bottom: 2px;
+  }
+  
+  .footer-col ul li a{
+      font-size: 1.2rem;
+      color: black;
+      text-decoration: none;
+      font-weight: lighter;
+      display: block;
+      transition: all 0.3s ease;
+  }
+  
+  .footer-col ul li a:hover{
+    color: blue;
+    padding-left: 8px;
+  }
+  
+  .footer-col .social-links i{
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	color: black;
+	transition: all 0.5s ease;
+	font-size: 1.5rem;
+}
+ 
+  .footer-col .social-links i:hover{
+      color: blue;
+  }
+  
+  @media(max-width: 767px){
+    .footer-col{
+      width: 50%;
+      margin-bottom:12px;
+  }
+  }
+  @media(max-width: 574px){
+    .footer-col{
+      width: 100%;
+  }
+  }
+
+  .copyright{
+	font-size: 1rem;
+	font-family: Cambria,Georgia,Arial,sans-sarif;
+	text-align: center;
+	color: black;
+  margin-top: 0rem;
+  padding-top: 0rem;
+  line-height: 0.9rem;
+}
+
+@media only screen and (max-width: 500px) {
+  .copyright{
+    font-size: 0.7rem;
+    margin: 0rem;
+    padding: 0rem;
+    line-height: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .footer-col {
+    margin-bottom: 0rem;
+    padding-bottom: 0rem;
+  }
+}
