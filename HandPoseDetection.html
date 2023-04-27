@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>Hand Pose Estimation</title>
+ <!-- Favicons -->
+ <link href="images/logo.png" rel="icon">
+ <link href="images/logo.png" rel="apple-touch-icon">
+
+<!--Meta tags -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link href="https://fonts.googleapis.com/css2?family=Otomanopee+One&family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<!--External CSS-->
+<link rel="stylesheet" href="css/HandPoseDetection.css" type="text/css"/>
+<link rel="stylesheet" href="css/ContactUs.css" type="text/css"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<script src="https://unpkg.com/@tensorflow/tfjs-core@3.7.0/dist/tf-core.js"></script>
+
+<!-- You must explicitly require a TF.js backend if you're not using the tfs union bundle. -->
+<script src="https://unpkg.com/@tensorflow/tfjs-backend-webgl@3.7.0/dist/tf-backend-webgl.js"></script>
+
+<!-- The main handpose library -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection@2.0.0/dist/hand-pose-detection.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.min.js"></script>
+
+<!-- The fingerpose library -->
+<script src="script/HandPoseDetection.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+    <header>
+    <h1 class="jumbotron jumbotron-fluid display-7">Single Pose Estimation</h1>
+    </header>
+    
+    
+    <!--Naviagation Bar Begins From Here-->
+    <nav class="navbar navbar-expand-lg navbar-dark" id="navbarstyle">
+    <div id="navbc">
+    <a class="navbar-brand" id="rehome" href="index.html"><i class="fa fa-home"></i></a>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+    
+    <a  class="navbar-brand Website" id="actives" href="SinglePoseDetection.html" style="width: 10.5rem;">S-Pose Detection</a>    
+    <a  class="navbar-brand" id="reactives" href="Explore.html" style="width: 10.1rem; color: black; font-weight: bold;">Explore More</a>
+    
+    <a  class="navbar-brand Website" id="actives" href="MultiPoseDetection.html" style="width: 11rem;">M-Pose Detection</a>
+    <a  class="navbar-brand Website" id="reactives" href="HandPoseDetection.html" style="width: 9.5rem;">H-Pose Detection</a>
+    </div>
+    </nav>
+    <!--Naviagation Bar Ends Here-->
+    
+
+
+  <div class="container-fluid">
+
+    <div class="video">
+      <div id="video-container">
+        <video id="pose-video" class="layer" playsinline></video>
+        <canvas id="pose-canvas" class="layer"></canvas>
+        <div id="pose-result-left" class="layer pose-result"></div>
+        <br>
+        <div id="pose-result-right" class="layer pose-result"></div>
+      </div>
+    </div>
+
+    <div class="debug">
+      <h2>Left Hand</h2>
+      <table id="summary-left" class="summary">
+        <thead>
+          <tr>
+            <th>Idx</th>
+            <th>Finger</th>
+            <th style="width: 110px">Curl</th>
+            <th style="width: 170px">Direction</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0</td>
+            <td>Thumb</td>
+            <td><span id="curl-0">-</span></td>
+            <td><span id="dir-0">-</span></td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Index</td>
+            <td><span id="curl-1">-</span></td>
+            <td><span id="dir-1">-</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Middle</td>
+            <td><span id="curl-2">-</span></td>
+            <td><span id="dir-2">-</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Ring</td>
+            <td><span id="curl-3">-</span></td>
+            <td><span id="dir-3">-</span></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Pinky</td>
+            <td><span id="curl-4">-</span></td>
+            <td><span id="dir-4">-</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <h2>Right Hand</h2>
+      <table id="summary-right" class="summary">
+        <thead>
+          <tr>
+            <th>Idx</th>
+            <th>Finger</th>
+            <th style="width: 110px">Curl</th>
+            <th style="width: 170px">Direction</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0</td>
+            <td>Thumb</td>
+            <td><span id="curl-0">-</span></td>
+            <td><span id="dir-0">-</span></td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Index</td>
+            <td><span id="curl-1">-</span></td>
+            <td><span id="dir-1">-</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Middle</td>
+            <td><span id="curl-2">-</span></td>
+            <td><span id="dir-2">-</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Ring</td>
+            <td><span id="curl-3">-</span></td>
+            <td><span id="dir-3">-</span></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Pinky</td>
+            <td><span id="curl-4">-</span></td>
+            <td><span id="dir-4">-</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script>
+
+    const config = {
+      video: { width: 640, height: 537, fps: 30 }
+    }
+
+    const landmarkColors = {
+      thumb: 'red',
+      index: 'blue',
+      middle: 'yellow',
+      ring: 'green',
+      pinky: 'pink',
+      wrist: 'white'
+    }
+
+    const gestureStrings = {
+      'thumbs_up': '👍',
+      'victory': '✌🏻'
+    }
+
+    async function createDetector() {
+      return window.handPoseDetection.createDetector(
+        window.handPoseDetection.SupportedModels.MediaPipeHands,
+        {
+          runtime: "mediapipe",
+          modelType: "full",
+          maxHands: 2,
+          solutionPath: `https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915`,
+        }
+      )
+    }
+
+    async function main() {
+
+      const video = document.querySelector("#pose-video")
+      const canvas = document.querySelector("#pose-canvas")
+      const ctx = canvas.getContext("2d")
+
+      const resultLayer = {
+        right: document.querySelector("#pose-result-right"),
+        left: document.querySelector("#pose-result-left")
+      }
+      // configure gesture estimator
+      // add "✌🏻" and "👍" as sample gestures
+      const knownGestures = [
+        fp.Gestures.VictoryGesture,
+        fp.Gestures.ThumbsUpGesture
+      ]
+      const GE = new fp.GestureEstimator(knownGestures)
+      // load handpose model
+      const detector = await createDetector()
+      console.log("mediaPose model loaded")
+
+      // main estimation loop
+      const estimateHands = async () => {
+
+        // clear canvas overlay
+        ctx.clearRect(0, 0, config.video.width, config.video.height)
+        resultLayer.right.innerText = ''
+        resultLayer.left.innerText = ''
+
+        // get hand landmarks from video
+        const hands = await detector.estimateHands(video, {
+          flipHorizontal: true
+        })
+
+        for (const hand of hands) {
+          for (const keypoint of hand.keypoints) {
+            const name = keypoint.name.split('_')[0].toString().toLowerCase()
+            const color = landmarkColors[name]
+            drawPoint(ctx, keypoint.x, keypoint.y, 3, color)
+          }
+
+          const est = GE.estimate(hand.keypoints3D, 9)
+          if (est.gestures.length > 0) {
+
+            // find gesture with highest match score
+            let result = est.gestures.reduce((p, c) => {
+              return (p.score > c.score) ? p : c
+            })
+            const chosenHand = hand.handedness.toLowerCase()
+            resultLayer[chosenHand].innerText = gestureStrings[result.name]
+            updateDebugInfo(est.poseData, chosenHand)
+          }
+
+        }
+        // ...and so on
+        setTimeout(() => { estimateHands() }, 1000 / config.video.fps)
+      }
+
+      estimateHands()
+      console.log("Starting predictions")
+    }
+
+    async function initCamera(width, height, fps) {
+
+      const constraints = {
+        audio: false,
+        video: {
+          facingMode: "user",
+          width: width,
+          height: height,
+          frameRate: { max: fps }
+        }
+      }
+
+      const video = document.querySelector("#pose-video")
+      video.width = width
+      video.height = height
+
+      // get video stream
+      const stream = await navigator.mediaDevices.getUserMedia(constraints)
+      video.srcObject = stream
+
+      return new Promise(resolve => {
+        video.onloadedmetadata = () => { resolve(video) }
+      })
+    }
+
+    function drawPoint(ctx, x, y, r, color) {
+      ctx.beginPath()
+      ctx.arc(x, y, r, 0, 2 * Math.PI)
+      ctx.fillStyle = color
+      ctx.fill()
+    }
+
+    function updateDebugInfo(data, hand) {
+      const summaryTable = `#summary-${hand}`
+      for (let fingerIdx in data) {
+        document.querySelector(`${summaryTable} span#curl-${fingerIdx}`).innerHTML = data[fingerIdx][1]
+        document.querySelector(`${summaryTable} span#dir-${fingerIdx}`).innerHTML = data[fingerIdx][2]
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+
+      initCamera(
+        config.video.width, config.video.height, config.video.fps
+      ).then(video => {
+        video.play()
+        video.addEventListener("loadeddata", event => {
+          console.log("Camera is ready")
+          main()
+        })
+      })
+
+      const canvas = document.querySelector("#pose-canvas")
+      canvas.width = config.video.width
+      canvas.height = config.video.height
+      console.log("Canvas initialized")
+    });
+  </script>
+
+
+
+<!--Footer start here-->
+
+<footer class="footer" id="forum">
+  <div class="container" id="container1">
+  <div class="row">
+  <div class="footer-col">
+  <h4>Pose Estimation</h4>
+  <ul class="list-unstyled">
+  <li><a href="Aboutus.html" id="address">About Us</a></li>
+  <li><a href="TermsOfUse.html"><b>Terms Of Use</b></a></li>
+  <li><a href="PrivacyPolicy.html" id="address">Privacy Blueprint</a></li>
+  </ul>
+  </div>
+  <div class="footer-col">
+  <h4>Get Help</h4>
+  <ul class="list-unstyled">
+  <li><a href="Feedback.html"><b>Feedback</b></a></li> 
+  <li><a href="Contactus.html" id="address">Contact Us</a></li>
+  <li><a href="Help.html"><b>Help & Support</b></a></li>
+  </ul>
+  </div>
+  <div class="footer-col">
+  <h4 >Address</h4>
+  <ul class="list-unstyled">
+  <li><a href="http://www.dbrau.org.in/Department_of_Institute_EngineeringTechnology.aspx" id="address">IET Agra, <br> Khandari Campus, <br>Uttar Pradesh 282002
+  </a></li>
+  
+  </ul>
+  </div>
+  <div class="footer-col">
+  <h4>Follow Us</h4>
+  
+  <div class="social-links" style="word-spacing: 1px">
+    <a href="https://wa.me/8808613146"><i class="fab fa-whatsapp"></i></a>
+    <a href="tel:6377022729"><i class="fa fa-phone"></i></a>
+    <a href="https://github.com/itsindrajput/PoseEstimation.git"><i class="fa fa-github"></i></a>
+    <a href="https://t.me/itsindrajput"><i class="fab fa-telegram"></i></a>
+    </div>
+
+    <div class="social-links">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fa fa-twitter-square"></i></a>
+      <a href="#"><i class="fa fa-envelope-o"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+    </div>
+  </div>
+  </div>
+
+  <div class="row justify-content-center">             
+  <div class="col-auto row" style="margin-top: 0.2rem;">
+  <legend class="copyright">|Human Pose Estimation &copy 2023  All Right &reg|</legend> 
+  <legend class="copyright">|View Tearms Of Use &amp; Privacy Blueprint|</legend> 
+  </div>
+  </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
