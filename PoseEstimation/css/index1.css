@@ -259,8 +259,13 @@ a:hover{
   }
 
   .footer-col{
-     width: 23%;
+     width: 20%;
      padding: 0 20px;
+  }
+  @media only screen and (min-width: 1160px) {
+    .footer-col{
+      margin-left: 2.5rem;
+    }
   }
   
   .footer-col h4{
@@ -292,12 +297,12 @@ a:hover{
   }
   
   .footer-col .social-links i{
-	margin:0 10px 10px 0;
+	margin:5px 10px 10px 0;
 	text-align: center;
-	line-height: 40px;
+	line-height: 30px;
 	color: black;
 	transition: all 0.5s ease;
-	font-size: 1.5rem;
+	font-size: 1.6rem;
 }
  
   .footer-col .social-links i:hover{
@@ -317,13 +322,14 @@ a:hover{
   }
 
   .copyright{
-	font-size: 1rem;
+	font-size: 1.1rem;
+  word-spacing: 2px;
 	font-family: Cambria,Georgia,Arial,sans-sarif;
 	text-align: center;
 	color: black;
-  margin-top: 0rem;
+  margin-right: 4rem;
   padding-top: 0rem;
-  line-height: 0.9rem;
+  line-height: 1rem;
 }
 
 @media only screen and (max-width: 500px) {
@@ -331,7 +337,7 @@ a:hover{
     font-size: 0.7rem;
     margin: 0rem;
     padding: 0rem;
-    line-height: 0.9rem;
+    line-height: 0.7rem;
     margin-bottom: 0.3rem;
   }
 }
