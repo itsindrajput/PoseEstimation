@@ -9,4 +9,5 @@ The single-pose estimation algorithm is the simpler and faster of the two. Its i
 - Multi-person Pose Estimation
 The multi-person pose estimation algorithm can estimate many poses/persons in an image. It is more complex and slightly slower than the single-pose algorithm, but it has the advantage that if multiple people appear in a picture, their detected keypoints are less likely to be associated with the wrong pose. For that reason, even if the use case is to detect a single person’s pose, this algorithm may be more desirable.
 
-![Human Pose Estimation Home Page](https://user-images.githubusercontent.com/70815899/218476373-b1d94333-62fd-4adb-b0cd-4c819f8f3676.png)
+![PoseEstimation HomePage](https://user-images.githubusercontent.com/70815899/235153520-9dee8b2d-c39c-49ce-bf5c-f6fad03dbeef.png)
+
