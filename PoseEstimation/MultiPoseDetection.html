@@ -15,54 +15,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Otomanopee+One&family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<!--External CSS-->
-<link rel="stylesheet" href="css/index1.css" type="text/css"/>
-<link rel="stylesheet" href="css/index2.css" type="text/css"/>
+<!-- External CSS -->
+<link rel="stylesheet" href="css/ContactUs.css" type="text/css"/>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-<script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+<style>
+  .bodytxt{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: justify; 
+    font-size: 1.3rem;
+    line-height: 2.1rem;
+    margin-top: 0%;
+}
+</style>
+
+
 </head>
 
-<style>
-#bottomtxt{
-width: 90%; 
-display: block; 
-margin-left: auto; 
-margin-right: auto;
-}
-@media only screen and (min-device-width: 700px){
-#bottomtxt{
-width: 50%; 
-display: block; 
-margin-left: auto; 
-margin-right: auto;
-}
-}
 
-#Picture2{
-width: 95%;
-height: 301px;
-border: 1px solid rgb(194, 189, 189);
-display: block;
-margin-left: auto;
-margin-right: auto;
-margin-bottom: 1.8rem;
-}
-@media only screen and (min-device-width: 700px){
-    #Picture2{
-    width: 55%;
-    border: 1px solid rgb(194, 189, 189);
-    height: 401px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1.5rem;
-    margin-bottom: 2.5rem;
-}
-}
-
-</style>
 
 <body>
 
@@ -81,92 +51,114 @@ margin-bottom: 1.8rem;
 </button>
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-
 <a  class="navbar-brand Website" id="actives" href="SinglePoseDetection.html" style="width: 10.5rem;">S-Pose Detection</a>    
 <a  class="navbar-brand" id="reactives" href="Explore.html" style="width: 10.1rem; color: black; font-weight: bold;">Explore More</a>
 
-<a  class="navbar-brand Website" id="actives" href="MultiPoseDetection.html" style="width: 11rem;"> M-Pose Detection</a>
-<a  class="navbar-brand Website" id="reactives" href="#forum" style="width: 9.5rem;">Website Forum</a>
+<a  class="navbar-brand Website" id="actives" href="MultiPoseDetection.html" style="width: 11rem;">M-Pose Detection</a>
+<a  class="navbar-brand Website" id="reactives" href="HandPoseDetection.html" style="width: 9.5rem;">H-Pose Detection</a>
 </div>
 </nav>
 <!--Naviagation Bar Ends Here-->
 
 
-<div style="margin-top: 2.5rem; margin-bottom: 3rem; font-size: 1.1rem;">
-<h2 style="text-align: center;">WebCam Viewer</h2>
-<div>
 
-<img id="Picture2" src="images/under.jpg"/>
 
+<div class="container-fluid">
+  <div class="row" style="margin-top: 1rem;">
+    <div class="col-sm-5">
+      <div id="info" style="display:none"> </div> 
+      <div id="loading" style="display:flex"> 
+      <div class="spinner-text"> Loading PoseNet model... </div> 
+      <div class="sk-spinner sk-spinner-pulse"></div> </div> 
+      <div id="main" style="display:none"> 
+      <video id="video" playsinline="" style="-moz-transform:scaleX(-1);-o-transform:scaleX(-1);-webkit-transform:scaleX(-1);transform:scaleX(-1);display:none;"> 
+      </video> <canvas id="output"> </canvas></div> 
+    </div>
+
+    <div class="col-sm-4 bodytxt" style="border: 2px solid rgb(178, 176, 176); background-color: #edebeb; padding-left: 7px; padding-right: 7px;">
+      <p><em>Human Pose Estimation runs with either a single-pose or multi-pose detection algorithm.
+        The single person pose detector is faster and more accurate.
+      </em></p>
+        <p>
+          The multi-person pose estimation algorithm can estimate many poses/persons in an image. 
+          It is more complex and slightly slower than the single-pose algorithm, but it has the advantage that 
+          if multiple people appear in a picture, their detected keypoints are less likely to be 
+          associated with the wrong pose.
+        </p>
+        <p>
+        The output & input resolution have the largest effects on accuracy/speed. 
+        A higher output stride results in lower accuracy but higher speed. A higher image scale factor 
+        results in higher accuracy but lower speed. 
+        </p>
+    </div>
+
+    <div class="col-sm-3">
+
+    </div>
+  </div>
 </div>
-
-<div id="bottomtxt">
-<p>PoseNet runs with either a single-pose or multi-pose detection algorithm. 
-The single person pose detector is faster and more accurate but requires only one subject present in 
-the image. <br/>
-The output stride and input resolution have the largest effects on accuracy/speed. 
-A higher output stride results in lower accuracy but higher speed. A higher image scale factor 
-results in higher accuracy but lower speed. </p>
-</div>
-</div>
-
-
-
 
 <!--Footer start here-->
 
 <footer class="footer" id="forum">
-    <div class="container" id="container1">
-    <div class="row">
-    <div class="footer-col">
-    <h4>Pose Estimation</h4>
-    <ul class="list-unstyled">
-    <li><a href="Aboutus.html" id="address">About Us</a></li>
-    <li><a href="TermsOfUse.html"><b>Terms Of Use</b></a></li>
-    <li><a href="PrivacyPolicy.html" id="address">Privacy Blueprint</a></li>
-    </ul>
+  <div class="container" id="container1">
+  <div class="row">
+  <div class="footer-col">
+  <h4>Pose Estimation</h4>
+  <ul class="list-unstyled">
+  <li><a href="Aboutus.html" id="address">About Us</a></li>
+  <li><a href="TermsOfUse.html"><b>Terms Of Use</b></a></li>
+  <li><a href="PrivacyPolicy.html" id="address">Privacy Blueprint</a></li>
+  </ul>
+  </div>
+  <div class="footer-col">
+  <h4>Get Help</h4>
+  <ul class="list-unstyled">
+  <li><a href="Feedback.html"><b>Feedback</b></a></li> 
+  <li><a href="Contactus.html" id="address">Contact Us</a></li>
+  <li><a href="Help.html"><b>Help & Support</b></a></li>
+  </ul>
+  </div>
+  <div class="footer-col">
+  <h4 >Address</h4>
+  <ul class="list-unstyled">
+  <li><a href="http://www.dbrau.org.in/Department_of_Institute_EngineeringTechnology.aspx" id="address">IET Agra, <br> Khandari Campus, <br>Uttar Pradesh 282002
+  </a></li>
+  
+  </ul>
+  </div>
+  <div class="footer-col">
+  <h4>Follow Us</h4>
+  
+  <div class="social-links" style="word-spacing: 1px">
+    <a href="https://wa.me/8808613146"><i class="fab fa-whatsapp"></i></a>
+    <a href="tel:6377022729"><i class="fa fa-phone"></i></a>
+    <a href="https://github.com/itsindrajput/PoseEstimation.git"><i class="fa fa-github"></i></a>
+    <a href="https://t.me/itsindrajput"><i class="fab fa-telegram"></i></a>
     </div>
-    <div class="footer-col">
-    <h4>Get Help</h4>
-    <ul class="list-unstyled">
-    <li><a href="Feedback.html"><b>Feedback</b></a></li> 
-    <li><a href="Contactus.html" id="address">Contact Us</a></li>
-    <li><a href="Help.html"><b>Help & Support</b></a></li>
-    </ul>
-    </div>
-    <div class="footer-col">
-    <h4 >Address</h4>
-    <ul class="list-unstyled">
-    <li><a href="http://www.dbrau.org.in/Department_of_Institute_EngineeringTechnology.aspx" id="address">I.E.T Khandari<br>AgraUP-282002
-    </a></li>
-    <li><a href="tel:6377022729" id="address"><i class="fa fa-phone" aria-hidden="true" style="font-size: 1.2rem;"> Click To Call </i></li>
-    
-    </ul>
-    </div>
-    <div class="footer-col">
-    <h4>Follow Us</h4>
+
     <div class="social-links">
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fa fa-twitter-square"></i></a>
-    <a href="#"><i class="fa fa-envelope-o"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fa fa-twitter-square"></i></a>
+      <a href="#"><i class="fa fa-envelope-o"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
     </div>
-    </div>
-    </div>
+  </div>
+  </div>
 
-    <div class="row justify-content-center">             
-    <div class="col-auto row">
-    <legend class="copyright">|Human Pose Estimation &copy 2023  All Right &reg|</legend> 
-    <legend class="copyright">|View Tearms Of Use &amp; Privacy Blueprint|</legend> 
-    </div>
-    </div>
-
-    </div>
+  <div class="row justify-content-center">             
+  <div class="col-auto row" style="margin-top: 0.2rem;">
+  <legend class="copyright">|Human Pose Estimation &copy 2023  All Right &reg|</legend> 
+  <legend class="copyright">|View Tearms Of Use &amp; Privacy Blueprint|</legend> 
+  </div>
+  </div>
+  </div>
 </footer>
 
 
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="script/MultiPoseDetection.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
