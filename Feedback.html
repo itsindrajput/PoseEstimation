@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>Pose Estimation | Feedback Form |</title>
+ <!-- Favicons -->
+ <link href="images/logo.png" rel="icon">
+ <link href="images/logo.png" rel="apple-touch-icon">
+
+<!--Meta tags -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link href="https://fonts.googleapis.com/css2?family=Otomanopee+One&family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<!--External CSS-->
+<link rel="stylesheet" href="css/index1.css" type="text/css"/>
+<link rel="stylesheet" href="css/index2.css" type="text/css"/>
+<link rel="stylesheet" href="css/feedback.css" type="text/css"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+
+<body>
+
+<header>
+<h1 class="jumbotron jumbotron-fluid display-7">Pose Estimation Feedback Form</h1>
+</header>
+
+
+<!--Naviagation Bar Begins From Here-->
+<nav class="navbar navbar-expand-lg navbar-dark" id="navbarstyle">
+<div id="navbc">
+<a class="navbar-brand Website" id="rehome" href="index.html"><i class="fa fa-home"></i></a>
+</div>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+<a  class="navbar-brand Website" id="actives" href="SinglePoseDetection.html" style="width: 10.5rem;">S-Pose Detection</a>    
+<a  class="navbar-brand" id="reactives" href="Explore.html" style="width: 10.1rem; color: black; font-weight: bold;">Explore More</a>
+
+<a  class="navbar-brand Website" id="actives" href="MultiPoseDetection.html" style="width: 11rem;">M-Pose Detection</a>
+<a  class="navbar-brand Website" id="reactives" href="HandPoseDetection.html" style="width: 9.5rem;">H-Pose Detection</a>
+</div>
+</nav>
+<!--Naviagation Bar Ends Here-->
+
+
+
+
+<div class="container-fluid" style="text-align: justify;">
+<form action="https://formspree.io/f/xwkzkkyg" method="POST">
+<fieldset id="first">
+<legend class="required"> Required </legend>
+<label for="user"><b> Full Name: </b><br />
+<input id="user" type="text" name="UserName:" maxlength="100" size="20" required="required" /></label><br />
+<label for="mail"><b> Email I'd: </b><br />
+<input id="mail"type="email" name="E-Mail Id:" maxlength="110" size="20" required="required" /></label>
+</fieldset><br />
+<fieldset id="second">
+<legend>Select One Of The Following Option</legend>
+<label><b>How Likely Would You Recommend This Website To Your Friends.</b></label><br>
+<input type="radio" name="Would You Recommend" value="Likely" /> Likely
+<input type="radio" name="Would You Recommend" value="VeryLikely" /> Very Likely
+<input type="radio" name="Would You Recommend" value="Not Interested" /> Not Interested<br />
+<hr>
+<label><b>Would You Like To Visit This Website Again.</b></label><br />
+<input type="checkbox" name="Would You Like To Visit Again"  value="Yes" /> Yes
+<input type="checkbox" name="Would You Like To Visit Again"  value="yes" /> No
+<input type="checkbox" name="Would You Like To Visit Again" value="no" /> May Be<br />
+<hr>
+<label><b>Does This Website Resolves Your Problem/Queries.</b></label><br />
+<input type="checkbox" name="Does This Website Resolves Problem" value="Yes" /> Yes
+<input type="checkbox" name="Does This Website Resolves Problem" value="No" /> No
+<input type="checkbox" name="Does This Website Resolves Problem" value="Don't Know" /> Don"t Know<br />
+<hr>
+<label><b>[Out Of 5  star] How Much You Would Like To Give On Overall Functionality/Performance.</b></label><br />
+<input type="radio" name="Functionality" value="5 Star" /> 5 Star
+<input type="radio" name="Functionality" value="4 Star" /> 4 Star
+<input type="radio" name="Functionality" value="3 Star" /> 3 Star
+<input type="radio" name="Functionality" value="2 Star" /> 2 Star
+<input type="radio" name="Functionality" value="1 Star" /> 1 Star
+</fieldset><br />
+
+ <fieldset  id="four">
+<legend>Any Suggesations Would You Preferred To Give</legend>
+<textarea name="Any Suggestions ?" id="area" placeholder=" What Suggestions You Are Willing To Give ....?"></textarea>
+</fieldset>
+<br />
+
+<fieldset class="third" id="third">
+<h5 ><p>How Did You Come To Know About This Website!
+<select id="know" name="How Did You Come To Know About">
+<option value="Google" selected="selected"> Google </option>
+<option value="SocialMedia" > Social Media </option>
+<option value="Friends" > Friends </option>
+<option value="Advertisement" > Advertisement </option>
+<option value="OtherSources" > Other Sources </option>
+</select>
+</p>
+<p>Choose Your Browser From The List:
+<input list="browsers" name="Your Browser" id="browser">
+<datalist id="browsers">
+<option class="eight" value="Firefox">
+<option class="eight" value="Chrome">
+<option class="eight" value="Opera">
+<option class="eight" value="Internet Explorer">
+<option class="eight" value="Microsot Edge">
+</datalist>
+</p></h3>
+</fieldset>
+
+<fieldset id="five" style="margin-bottom: 2.5rem;">
+<h2><i>
+<input type="checkbox" name="Sign Me" value="Sign Me"> Sign Me Up For Email Updates.</i></h2>
+<input class="image" type="image" src="images/submit.jpg" height="55" width="330" />
+</fieldset>
+</form>
+
+</div>
+
+
+<!--Footer start here-->
+
+<footer class="footer" id="forum">
+    <div class="container" id="container1">
+    <div class="row">
+    <div class="footer-col">
+    <h4>Pose Estimation</h4>
+    <ul class="list-unstyled">
+    <li><a href="Aboutus.html" id="address">About Us</a></li>
+    <li><a href="TermsOfUse.html"><b>Terms Of Use</b></a></li>
+    <li><a href="PrivacyPolicy.html" id="address">Privacy Blueprint</a></li>
+    </ul>
+    </div>
+    <div class="footer-col">
+    <h4>Get Help</h4>
+    <ul class="list-unstyled">
+    <li><a href="Feedback.html"><b>Feedback</b></a></li> 
+    <li><a href="Contactus.html" id="address">Contact Us</a></li>
+    <li><a href="Help.html"><b>Help & Support</b></a></li>
+    </ul>
+    </div>
+    <div class="footer-col">
+    <h4 >Address</h4>
+    <ul class="list-unstyled">
+    <li><a href="http://www.dbrau.org.in/Department_of_Institute_EngineeringTechnology.aspx" id="address">IET Agra, <br> Khandari Campus, <br>Uttar Pradesh 282002
+    </a></li>
+    
+    </ul>
+    </div>
+    <div class="footer-col">
+        <h4>Follow Us</h4>
+        
+        <div class="social-links" style="word-spacing: 1px">
+          <a href="https://wa.me/8808613146"><i class="fab fa-whatsapp"></i></a>
+          <a href="tel:6377022729"><i class="fa fa-phone"></i></a>
+          <a href="https://github.com/itsindrajput/PoseEstimation.git"><i class="fa fa-github"></i></a>
+          <a href="https://t.me/itsindrajput"><i class="fab fa-telegram"></i></a>
+          </div>
+    
+          <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-twitter-square"></i></a>
+            <a href="#"><i class="fa fa-envelope-o"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+          </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">             
+    <div style="margin-top: 0.2rem;">
+    <h5 class="copyright" style="line-height: 1rem;">|Human Pose Estimation &copy 2023  All Right &reg|</h5> 
+    <h5 class="copyright" style="line-height: 1rem;">|View Tearms Of Use &amp; Privacy Blueprint|</h5> 
+    </div>
+    </div>
+
+    </div>
+</footer>
+
+
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

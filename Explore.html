@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>Pose Estimation | Explore Page |</title>
+ <!-- Favicons -->
+ <link href="images/logo.png" rel="icon">
+ <link href="images/logo.png" rel="apple-touch-icon">
+
+<!--Meta tags -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link href="https://fonts.googleapis.com/css2?family=Otomanopee+One&family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<!--External CSS-->
+<link rel="stylesheet" href="css/index1.css" type="text/css"/>
+<link rel="stylesheet" href="css/index2.css" type="text/css"/>
+<link rel="stylesheet" href="css/Explore.css" type="text/css"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<script type = "text/javascript">
+function displayNextImage() {
+    x = (x === images.length - 1) ? 0 : x + 1;
+    document.getElementById("img").src = images[x];
+}
+
+function displayPreviousImage() {
+    x = (x <= 0) ? images.length - 1 : x - 1;
+    document.getElementById("img").src = images[x];
+}
+
+function startTimer() {
+    setInterval(displayNextImage, 3000);
+}
+
+var images = [], x = -1;
+images[0] = "images/demo1.gif";
+images[1] = "images/demo2.gif";
+images[2] = "images/demo3.gif";
+</script>
+
+</head>
+
+<body onload = "startTimer()">
+<header>
+<h1 class="jumbotron jumbotron-fluid display-7">Explore About Human Pose Estimation</h1>
+</header>
+
+
+<!--Naviagation Bar Begins From Here-->
+<nav class="navbar navbar-expand-lg navbar-dark" id="navbarstyle">
+<div id="navbc">
+<a class="navbar-brand Website" id="rehome" href="index.html"><i class="fa fa-home"></i></a>
+</div>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<a  class="navbar-brand Website" id="actives" href="SinglePoseDetection.html" style="width: 10.5rem;">S-Pose Detection</a>    
+<a  class="navbar-brand" id="reactives" href="Explore.html" style="width: 10.1rem; color: black; font-weight: bold;">Explore More</a>
+<a  class="navbar-brand Website" id="actives" href="MultiPoseDetection.html" style="width: 11rem;">M-Pose Detection</a>
+<a  class="navbar-brand Website" id="reactives" href="HandPoseDetection.html" style="width: 9.5rem;">H-Pose Detection</a>
+</div>
+</nav>
+<!--Naviagation Bar Ends Here-->
+
+
+
+<!--Body Starts Here-->
+
+<img id="img" src="images/demo1.gif"/>
+<div class="bodytxt">
+
+<h2 style="text-decoration: underline; font-family: Georgia, 'Times New Roman', Times, serif;">Topology:</h2>
+<p class="normaltxt">
+The current standard for human body pose is the COCO topology, which consists of 17 landmarks across the arms, legs, and face. However, 
+the COCO keypoints only localize to the ankle and wrist points, lacking scale and orientation information for hands and feet, which is 
+vital for practical applications like fitness and dance. The inclusion of more keypoints is crucial for the subsequent application of
+    domain-specific pose estimation models, like those for hands, face, or feet.</p>
+<img id="Picture2" src="images/points.png"/>
+
+
+<h2 style="text-decoration: underline; font-family: Georgia, 'Times New Roman', Times, serif; text-align: left;">Outlook And Future Trends:</h2>
+<p class="normaltxt" style="margin-bottom: 1.5rem;">Pose estimation for objects is a major trend in computer vision. Object pose estimation allows gaining a more 
+detailed understanding of objects compared to two-dimensional bounding boxes. Until now, pose estimation is still 
+computationally very intensive and requires expensive AI hardware (often multiple NVIDIA GPUs) that is not 
+practical for real-world use.<br/> 
+Edge AI technology New technologies and methods make it possible to decrease the 
+size of AI models, making pose estimation algorithms less “heavy” and much more efficient. This is the basis for 
+the real-world implementation of human pose detection. As a result, it becomes possible to deploy pose estimation 
+algorithms to edge devices and perform on-device machine learning (Edge AI). 
+Edge Inference makes the technology scalable, more robust for mission-critical applications (offline capability), 
+and private (no visuals need to be sent to the cloud). 
+An example of a lightweight pose estimation model for Edge ML is Lightweight OpenPose. 
+</p>
+
+<h2 style="text-decoration: underline; font-family: Georgia, 'Times New Roman', Times, serif; text-align: left;">Applications Of Human Pose Estimation:</h2>
+<section>
+<p class="normaltxt">One of the clearest areas in which pose estimation is applicable is in tracking 
+and measuring human movement. Using human pose estimation to track human 
+movement could also power several other experiences such as:</p>
+<p>
+<ol style="margin-left: 1rem;">
+    <li class="txtheading">AI Powered Sports Coaches And Personal Trainers</li>
+    <ul style="margin-left: 1rem;">
+    <li class="normaltxt">Zenia is an AI-powered yoga app that uses Human Pose Estimation to guide you towards achieving a proper posture 
+    during your yoga workouts. It uses the camera to detect your pose and estimates how accurate 
+    your pose is-if it is correct, then the predicted pose will be represented in green. If the pose isn't correct, the red color will replace the green one.
+    </li></ul>
+
+    <li class="txtheading">Surveillance And Human Activity Monitoring</li>
+    <ul style="margin-left: 1rem;">
+    <li class="normaltxt">Pose estimation is highly valued in surveillance systems in the big data.
+    Some surveillance cases don’t require spotting a crime in a crowd of people. 
+    Instead, cameras can be used to automate everyday processes like shopping at a grocery store. 
+    Cashierless store systems like Amazon GO, for example, apply human pose estimation to understand 
+    whether a person took some item from a shelf
+    </li>
+    </ul>  
+
+    <li class="txtheading">Animation And Gaming</li>
+    <ul style="margin-left: 1rem;">
+    <li class="normaltxt">Game development is a tough industry with a lot of complex tasks that require knowledge of human body. Human pose estimation is widely used in animation of game characters to simplify this 
+    process by transferring tracked key points in a certain position to the animated model. 
+    </li>
+    </ul>
+
+
+    <li class="txtheading">Athlete Pose Detection</li>
+    <ul style="margin-left: 1rem;">
+    <li class="normaltxt">Pose detection can help players to improve their technique and achieve better results. 
+     Apart from that, pose detection can be used to analyze and learn about the strength and weaknesses of the opponent, which is invaluable for professional athletes and their trainers.
+    </li>
+    </ul>
+    
+    <li class="txtheading">Robotics</li>
+    <ul style="margin-left: 1rem;">
+    <li class="normaltxt">Robotics has been one of the fastest-growing areas of development.
+    While programming a robot to follow a procedure can be tedious and time-consuming, deep learning approaches can come to the rescue.
+    Techniques such as reinforcement learning use a simulated environment to achieve the accuracy level required to perform a certain 
+    task and can be successfully used to train a robot.
+    </li>
+    </ul>
+</ol>
+</p>
+<img id="Picture1" src="images/Picture1.jpg"/>
+</section>
+
+</div>
+<!--Body Ends Here-->
+
+
+
+<!--Footer start here-->
+
+<footer class="footer" id="forum">
+    <div class="container" id="container1">
+    <div class="row">
+    <div class="footer-col">
+    <h4>Pose Estimation</h4>
+    <ul class="list-unstyled">
+    <li><a href="Aboutus.html" id="address">About Us</a></li>
+    <li><a href="TermsOfUse.html"><b>Terms Of Use</b></a></li>
+    <li><a href="PrivacyPolicy.html" id="address">Privacy Blueprint</a></li>
+    </ul>
+    </div>
+    <div class="footer-col">
+    <h4>Get Help</h4>
+    <ul class="list-unstyled">
+    <li><a href="Feedback.html"><b>Feedback</b></a></li> 
+    <li><a href="Contactus.html" id="address">Contact Us</a></li>
+    <li><a href="Help.html"><b>Help & Support</b></a></li>
+    </ul>
+    </div>
+    <div class="footer-col">
+    <h4 >Address</h4>
+    <ul class="list-unstyled">
+    <li><a href="http://www.dbrau.org.in/Department_of_Institute_EngineeringTechnology.aspx" id="address">IET Agra, <br> Khandari Campus, <br>Uttar Pradesh 282002
+    </a></li>
+    
+    </ul>
+    </div>
+    <div class="footer-col">
+    <h4>Follow Us</h4>
+    
+    <div class="social-links" style="word-spacing: 1px">
+      <a href="https://wa.me/8808613146"><i class="fab fa-whatsapp"></i></a>
+      <a href="tel:6377022729"><i class="fa fa-phone"></i></a>
+      <a href="https://github.com/itsindrajput/PoseEstimation.git"><i class="fa fa-github"></i></a>
+      <a href="https://t.me/itsindrajput"><i class="fab fa-telegram"></i></a>
+      </div>
+
+      <div class="social-links">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-twitter-square"></i></a>
+        <a href="#"><i class="fa fa-envelope-o"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+    </div>
+
+    <div class="row justify-content-center">             
+    <div class="col-auto row" style="margin-top: 0.2rem;">
+    <legend class="copyright">|Human Pose Estimation &copy 2023  All Right &reg|</legend> 
+    <legend class="copyright">|View Tearms Of Use &amp; Privacy Blueprint|</legend> 
+    </div>
+    </div>
+    </div>
+</footer>
+
+
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>
