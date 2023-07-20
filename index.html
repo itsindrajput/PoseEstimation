@@ -84,13 +84,35 @@
                     <legend style="text-decoration: underline; margin-left: 0.2rem; color: black; font-size: 1.5rem;">Download Document</legend>
                     <ul class="row" id="ul">
                       
-                    <li class="col-md-4" style="margin-right: 1.5rem; margin-left: 1.3rem;"><a href="images/Real Time Human Pose Estimation.pdf" download="Project Synopsis" target='_blank'>
-                    Project Synopsis
+                    <li class="col-md-4" style="margin-right: 1.5rem; margin-left: 1.3rem;">
+                      <a href="images/Project_Report.pdf" target="_blank">Project Report</a>
+                      
+                      <iframe id="pdf-iframe" src="" style="display: none;"></iframe>
+  
+                      <script>
+                      function showPDF(event) {
+                      event.preventDefault();
+                      var pdfUrl = event.target.href;
+                      document.getElementById("pdf-iframe").setAttribute("src", pdfUrl);
+                      document.getElementById("pdf-iframe").style.display = "block";
+                      }
+                      </script>
                     </a></li>
+                    
+                    <li class="col-md-4" style="margin-left: 1.3rem;">
+                    <a href="images/Project_Presentation.pptx" target="_blank">Project Presentation</a>
+                    
+                    <iframe id="ppt-iframe" src="" style="display: none;"></iframe>
 
-                    <li class="col-md-4" style="margin-left: 1.3rem;"><a href="images/Real Time Human Pose Estimation.pptx" download="PPT Presentation" target='_blank'>
-                    PPT Presentation
-                    </a></li>
+                    <script>
+                    function showPDF(event) {
+                    event.preventDefault();
+                    var pdfUrl = event.target.href;
+                    document.getElementById("pdf-iframe").setAttribute("src", pdfUrl);
+                    document.getElementById("pdf-iframe").style.display = "block";
+                    }
+                    </script>
+                    </a></li>  
                     </ul>
                   </p>
                 </div>
